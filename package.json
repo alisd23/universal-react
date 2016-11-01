@@ -11,7 +11,9 @@
     "dev": "npm-run-all -p client:dev server:dev start:dev"
   },
   "jest": {
-    "testRegex": "__tests__.*|\\.test\\.js$"
+    "collectCoverage": "true",
+    "collectCoverageFrom": ["components/**/*.js", "routes/*/*.js"],
+    "coveragePathIgnorePatterns": [".*style.js$"]
   },
   "repository": {
     "type": "git",

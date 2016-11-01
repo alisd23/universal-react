@@ -45,10 +45,10 @@ export default ({ server, env }) => ({
       //   from: 'favicon.ico',
       //   to: 'assets/favicons/favicon.ico'
       // },
-      // {
-      //   from: 'assets/favicons',
-      //   to: 'assets/favicons'
-      // }
+      {
+        from: 'assets',
+        to: 'assets'
+      }
     ]),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': `"${env}"`,
