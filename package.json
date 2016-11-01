@@ -1,0 +1,64 @@
+{
+  "name": "reviewer-web",
+  "version": "1.0.0",
+  "description": "Review site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client:dev": "babel-node scripts/dev-server --dev",
+    "server:dev": "babel-node scripts/build-server --dev",
+    "start:dev": "nodemon ./scripts/start-server.js --watch build/server.js --exec babel-node --dev",
+    "dev": "npm-run-all -p client:dev server:dev start:dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alisd23/reviewer-web.git"
+  },
+  "author": "Ali Sheehan-Dare <alisd23@live.co.uk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alisd23/reviewer-web/issues"
+  },
+  "homepage": "https://github.com/alisd23/reviewer-web#readme",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "express": "^4.14.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-router": "next"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.5.1",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.0",
+    "babel-eslint": "^7.1.0",
+    "babel-loader": "^6.2.7",
+    "babel-plugin-transform-class-properties": "^6.18.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-1": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "case-sensitive-paths-webpack-plugin": "^1.1.4",
+    "command-line-args": "^3.0.2",
+    "copy-webpack-plugin": "^4.0.0",
+    "eslint": "^3.9.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-config-standard-jsx": "^3.2.0",
+    "eslint-config-standard-react": "^4.2.0",
+    "eslint-loader": "^1.6.0",
+    "eslint-plugin-promise": "^3.3.0",
+    "eslint-plugin-react": "^6.4.1",
+    "eslint-plugin-standard": "^2.0.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^3.1.1",
+    "promise": "^7.1.1",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "rimraf": "^2.5.4",
+    "universal-webpack": "^0.1.40",
+    "webpack": "beta",
+    "webpack-dev-server": "beta"
+  }
+}
