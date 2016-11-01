@@ -2,6 +2,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import express from 'express';
 import path from 'path';
+import { renderStatic } from 'glamor/server'
 import { ServerRouter, createServerRenderContext } from 'react-router';
 import paths from 'config/paths';
 import ports from 'config/ports';
@@ -17,7 +18,7 @@ export default (params) => {
     const context = createServerRenderContext();
 
     // render the first time
-    const createElement = () => (
+    const element = (
       <ServerRouter
         location={req.url}
         context={context}
@@ -26,7 +27,7 @@ export default (params) => {
       </ServerRouter>
     );
 
-    let markup = renderToString(createElement());
+    let renderData = renderStatic(() => renderToString(element));
 
     // get the result
     const result = context.getResult();
@@ -36,9 +37,9 @@ export default (params) => {
     } else {
       if (result.missed) {
         res.status(404);
-        markup = renderToString(element);
+        renderData = renderStatic(() => renderToString(element));
       }
-      const html = initialHtml(markup, params.chunks());
+      const html = initialHtml(renderData, params.chunks());
       res.send(html);
     }
   })

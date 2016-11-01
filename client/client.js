@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { rehydrate } from 'glamor';
 import { BrowserRouter } from 'react-router';
 import { AppContainer } from 'react-hot-loader';
 import App from 'components/App/App';
+
+rehydrate(window._glam)
 
 ReactDOM.render(
   <AppContainer>

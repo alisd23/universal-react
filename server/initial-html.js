@@ -1,9 +1,10 @@
-export default (content, assets) => `
+export default ({ html, css, ids }, assets) => `
   <!doctype html>
   <html lang="en">
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>${css}</style>
       <link rel='shortcut icon' href='/assets/favicons/favicon.ico' />
       <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-icon-57x57.png">
       <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-icon-60x60.png">
@@ -30,9 +31,9 @@ export default (content, assets) => `
       <title>Ali Sheehan-Dare</title>
     </head>
     <body>
-      <div id="root">${content}</div>
+      <div id="root">${html}</div>
     </body>
-    <script>window._INITIAL_STATE_=${JSON.stringify({})};</script>
+    <script>window._glam = ${JSON.stringify(ids)}</script>
     ${
       Object.keys(assets.javascript).map(name =>
         `<script src="${assets.javascript[name]}"></script>`
