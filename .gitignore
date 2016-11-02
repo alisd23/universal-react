@@ -5,6 +5,7 @@ npm-debug.log*
 
 # Built stuff
 build
+scripts/dist
 
 # Runtime data
 pids

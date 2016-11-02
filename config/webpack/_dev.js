@@ -1,5 +1,4 @@
 import webpack from 'webpack';
-import { client_configuration, server_configuration } from 'universal-webpack';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import paths from '../paths';
 import { WEBPACK_PORT } from '../ports';

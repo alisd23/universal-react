@@ -6,14 +6,23 @@
   "scripts": {
     "test": "jest",
     "client:dev": "babel-node scripts/dev-server --dev",
+    "client:prod": "babel-node scripts/build-client",
     "server:dev": "babel-node scripts/build-server --dev",
+    "server:prod": "babel-node scripts/build-server && webpack --config config/webpack/start.js",
     "start:dev": "nodemon ./scripts/start-server.js --watch build/server.js --exec babel-node --dev",
-    "dev": "npm-run-all -p client:dev server:dev start:dev"
+    "start:prod": "nodemon scripts/dist/start-server.js",
+    "dev": "npm-run-all -p client:dev server:dev start:dev",
+    "prod": "npm-run-all client:prod server:prod start:prod"
   },
   "jest": {
     "collectCoverage": "true",
-    "collectCoverageFrom": ["components/**/*.js", "routes/*/*.js"],
-    "coveragePathIgnorePatterns": [".*style.js$"]
+    "collectCoverageFrom": [
+      "components/**/*.js",
+      "routes/*/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      ".*style.js$"
+    ]
   },
   "repository": {
     "type": "git",
@@ -29,6 +38,7 @@
     "classnames": "^2.2.5",
     "express": "^4.14.0",
     "glamor": "^2.17.14",
+    "nodemon": "^1.11.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "next"
@@ -66,6 +76,7 @@
     "rimraf": "^2.5.4",
     "universal-webpack": "^0.1.40",
     "webpack": "beta",
-    "webpack-dev-server": "beta"
+    "webpack-dev-server": "beta",
+    "webpack-node-externals": "^1.5.4"
   }
 }

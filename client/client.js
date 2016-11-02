@@ -23,8 +23,10 @@ render();
 /*
  HOT RELOADING SETUP - DEV ONLY
  */
-if (module.hot && process.env.NODE_ENV === 'development') {
-  module.hot.accept('components/App/App', () => {
-    render();
-  });
+if (process.env.NODE_ENV === 'development') {
+  if (module.hot) {
+    module.hot.accept('components/App/App', () => {
+      render();
+    });
+  }
 }

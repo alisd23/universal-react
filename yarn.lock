@@ -4996,6 +4996,10 @@ webpack-dev-server@beta:
     webpack-dev-middleware "^1.4.0"
     yargs "^6.0.0"
 
+webpack-node-externals:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/webpack-node-externals/-/webpack-node-externals-1.5.4.tgz#ea05ba17108a23e776c35c42e7bb0e86c225be00"
+
 webpack-sources@^0.1.0:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-0.1.2.tgz#057a3f3255f8ba561b901d9150589aa103a57e65"
