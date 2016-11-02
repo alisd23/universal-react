@@ -14,7 +14,7 @@ export default ({ server }) => {
 
   return {
     ...shared,
-    devtool: 'eval-source-map',
+    devtool: 'inline-source-map',
     stats: {
       chunks: false
     },

@@ -41,10 +41,6 @@ export default ({ server, env }) => ({
   },
   plugins: [
     new CopyWebpackPlugin([
-      // {
-      //   from: 'favicon.ico',
-      //   to: 'assets/favicons/favicon.ico'
-      // },
       {
         from: 'assets',
         to: 'assets'

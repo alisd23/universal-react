@@ -3,32 +3,28 @@ import ReactDOM from 'react-dom';
 import { rehydrate } from 'glamor';
 import { BrowserRouter } from 'react-router';
 import { AppContainer } from 'react-hot-loader';
-import App from 'components/App/App';
 
-rehydrate(window._glam)
+rehydrate(window._glam);
 
-ReactDOM.render(
-  <AppContainer>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </AppContainer>,
-  document.getElementById('root')
-);
+const render = () => {
+  const App = require('components/App/App').default;
+  ReactDOM.render(
+    <AppContainer>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </AppContainer>,
+    document.getElementById('root')
+  );
+}
+
+render();
 
 /*
  HOT RELOADING SETUP - DEV ONLY
  */
 if (module.hot && process.env.NODE_ENV === 'development') {
   module.hot.accept('components/App/App', () => {
-    const NewApp = require('components/App/App').default;
-    ReactDOM.render(
-      <AppContainer>
-        <BrowserRouter>
-          <NewApp />
-        </BrowserRouter>
-      </AppContainer>,
-      document.getElementById('root')
-    );
+    render();
   });
 }
