@@ -4,7 +4,7 @@
   "description": "Review site",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "eslint styles client components config routes scripts server && jest",
     "client:dev": "babel-node scripts/dev-server --dev",
     "client:prod": "babel-node scripts/build-client",
     "server:dev": "babel-node scripts/build-server --dev",

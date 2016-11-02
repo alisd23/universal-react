@@ -2,7 +2,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import express from 'express';
 import path from 'path';
-import { renderStatic } from 'glamor/server'
+import { renderStatic } from 'glamor/server';
 import { ServerRouter, createServerRenderContext } from 'react-router';
 import paths from 'config/paths';
 import ports from 'config/ports';
@@ -42,13 +42,13 @@ export default (params) => {
       const html = initialHtml(renderData, params.chunks());
       res.send(html);
     }
-  })
+  });
 
   app.listen(ports.SERVER_PORT, function(error) {
     if (error) {
       console.error(error);
     } else {
-      console.info('==> 🌎 Backend server listening on port %s.', ports.SERVER_PORT);
+      console.info('==> 🌎 WEB server listening on port %s.', ports.SERVER_PORT);
     }
   });
 };
