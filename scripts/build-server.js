@@ -1,4 +1,3 @@
-import webpack from 'webpack';
 import prodConfig from '../config/webpack/prod.server';
 import devConfig from '../config/webpack/dev.server';
 import options from './options';
@@ -9,7 +8,7 @@ const config = options.dev ? devConfig : prodConfig;
 const params = {
   name: 'Server',
   options
-}
+};
 
 if (options.dev) {
   watcher(config, params);

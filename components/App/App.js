@@ -1,20 +1,8 @@
-import React, { Component, PropTypes } from 'react';
-import { Match } from 'react-router';
+import React, { Component } from 'react';
 import routes from 'routes/routes';
+import MatchWithSubRoutes from 'components/MatchWithSubRoutes';
 import globalStyles from 'styles/global.style';
 import 'glamor/reset';
-
-const MatchWithSubRoutes = (route) => (
-  <Match
-    {...route}
-    render={props =>
-      <route.component
-        {...props}
-        routes={route.routes}
-      />
-    }
-  />
-);
 
 export default class App extends Component {
   render() {
@@ -23,6 +11,7 @@ export default class App extends Component {
         id='app'
         className={globalStyles}
       >
+        <h1>THE APP</h1>
         {
           routes.map((route, i) => (
             <MatchWithSubRoutes

@@ -1,7 +1,9 @@
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import path from 'path';
 import webpack from 'webpack';
+import fs from 'fs';
 import paths from '../paths';
+const babelrc = JSON.parse(fs.readFileSync('.babelrc'));
 
 export default ({ server, env }) => ({
   context: paths.root,
@@ -28,7 +30,15 @@ export default ({ server, env }) => ({
         test: /\.js$/,
         include: [paths.root],
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel',
+        options: {
+          babelrc: false,
+          ...babelrc,
+          plugins: [
+            ...babelrc.plugins,
+            [path.resolve(paths.scripts, 'utils/babel-isomorphic-import-plugin.js'), { server, env }]
+          ]
+        }
       },
       {
         test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)(\?.*)?$/,

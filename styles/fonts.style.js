@@ -13,8 +13,8 @@ const createFonts = (fonts) =>
         fontStyle: t.style,
         fontWeight: t.weight,
         src: `local(${f.name}), url(${t.src})`
-      })
-    })
+      });
+    });
   });
 
 const globalFonts = [
@@ -38,7 +38,7 @@ export default merge(
     fontWeight: 400
   },
   $(' h1, h2, h3, h4, h5, h6', {
-      fontFamily: 'Open Sans',
-      fontWeight: 400
+    fontFamily: 'Open Sans',
+    fontWeight: 400
   })
-)
+);

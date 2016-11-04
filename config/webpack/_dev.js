@@ -3,7 +3,6 @@ import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import paths from '../paths';
 import { WEBPACK_PORT } from '../ports';
 import createSharedConfig from './_shared';
-import settings from './universal-webpack-settings';
 
 export default ({ server }) => {
   const shared = createSharedConfig({
@@ -15,7 +14,7 @@ export default ({ server }) => {
     ...shared,
     devtool: 'inline-source-map',
     stats: {
-      chunks: false
+      chunks: true
     },
     entry: [
       `webpack-dev-server/client?http://localhost:${WEBPACK_PORT}`,
@@ -26,11 +25,13 @@ export default ({ server }) => {
     output: {
       path: paths.build,
       pathinfo: true,
-      filename: 'js/bundle.js',
+      filename: 'bundle.js',
+      chunkFilename: '[name].js',
       publicPath: '/'
     },
     plugins: [
       ...shared.plugins,
+      new webpack.NamedModulesPlugin(),
       new webpack.HotModuleReplacementPlugin(),
       new CaseSensitivePathsPlugin()
     ]

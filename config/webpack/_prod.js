@@ -1,7 +1,6 @@
 import webpack from 'webpack';
 import paths from '../paths';
 import createSharedConfig from './_shared';
-import settings from './universal-webpack-settings';
 
 export default ({ server }) => {
   const shared = createSharedConfig({

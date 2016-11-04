@@ -14,6 +14,7 @@ export default {
   routes: resolveApp('routes'),
   server: resolveApp('server'),
   config: resolveApp('config'),
+  scripts: resolveApp('scripts'),
   assets: resolveApp('assets'),
   styles: resolveApp('styles'),
   ownNodeModules: resolveApp('node_modules'),
