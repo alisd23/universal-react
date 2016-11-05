@@ -4,7 +4,7 @@ import { rehydrate } from 'glamor';
 import { BrowserRouter } from 'react-router';
 import { AppContainer } from 'react-hot-loader';
 import fetchChunks from 'client/fetchChunks';
-import routes from 'routes';
+import routes from 'components/routes';
 
 rehydrate(window._glam);
 
@@ -22,7 +22,7 @@ const render = () => {
 
 // In dev mode everything is bundled together.
 // In prod we need to wait for async chunks to download before rendering
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production' || _SPLIT_) {
   fetchChunks(routes).then(render);
 } else {
   render();
@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === 'development') {
     module.hot.accept('components/App', () => {
       render();
     });
-    module.hot.accept('routes', () => {
+    module.hot.accept('components/routes', () => {
       render();
     });
   }

@@ -22,7 +22,9 @@ export default () => ({
         const { server, env } = state.opts;
         const isDev = env === 'development';
         const args = { SOURCE: path.node.arguments };
-        const newImport = server || isDev ? syncImport(args) : asyncImport(args);
+        const newImport = server || (isDev && !process.env.SPLIT)
+          ? syncImport(args)
+          : asyncImport(args);
         path.replaceWith(newImport);
       }
     }

@@ -10,8 +10,8 @@ const MatchWithSubRoutes = (route) => (
     render={props =>
       <LazyLoad
         {...props}
+        {...route}
         component={call(route.component)}
-        fetchedComponent={route.fetchedComponent}
       />
     }
   />

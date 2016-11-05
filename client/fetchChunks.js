@@ -1,12 +1,22 @@
 import { matchPattern } from 'react-router';
 
-const fetchChunks = routes =>
+const isRoot = p => p === '/';
+
+const fetchChunks = (routes, parentPath = '/') =>
   Promise.all(routes
     .map(route => {
-      return matchPattern(route.pattern, window.location, false)
-        ? route.component()
-          .then(comp => route.fetchedComponent = comp)
-        : null;
+      const match = matchPattern(
+        route.pattern,
+        window.location,
+        isRoot(route.pattern),
+        { pathname: parentPath }
+      );
+
+      if (match) {
+        const component = route.component().then(comp => route.fetchedComponent = comp);
+        const childRoutes = fetchChunks(route.routes || [], route.pattern);
+        return Promise.all([childRoutes, component]);
+      }
     })
     .filter(Boolean)
   );
