@@ -6,8 +6,8 @@ import { renderStatic } from 'glamor/server';
 import { ServerRouter, createServerRenderContext } from 'react-router';
 import paths from 'config/paths';
 import ports from 'config/ports';
-import App from 'components/App';
-import initialHtml from './initial-html';
+import App from 'shared/components/App';
+import initialHtml from 'server/initial-html';
 
 export default (params) => {
   const app = express();

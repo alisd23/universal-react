@@ -15,13 +15,11 @@ export default ({ server, env }) => ({
     extensions: ['.js', '.json'],
     modules: [paths.ownNodeModules],
     alias: {
-      components: paths.components,
       client: paths.client,
       server: paths.server,
+      shared: paths.shared,
       assets: paths.assets,
-      styles: paths.styles,
-      config: paths.config,
-      utils: paths.utils
+      config: paths.config
     }
   },
   module: {

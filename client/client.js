@@ -4,12 +4,12 @@ import { rehydrate } from 'glamor';
 import { BrowserRouter } from 'react-router';
 import { AppContainer } from 'react-hot-loader';
 import fetchChunks from 'client/fetchChunks';
-import routes from 'components/routes';
+import routes from 'shared/routes';
 
 rehydrate(window._glam);
 
 const render = () => {
-  const App = require('components/App').default;
+  const App = require('shared/components/App').default;
   ReactDOM.render(
     <AppContainer>
       <BrowserRouter>
@@ -33,10 +33,10 @@ if (process.env.NODE_ENV === 'production' || _SPLIT_) {
  */
 if (process.env.NODE_ENV === 'development') {
   if (module.hot) {
-    module.hot.accept('components/App', () => {
+    module.hot.accept('shared/components/App', () => {
       render();
     });
-    module.hot.accept('components/routes', () => {
+    module.hot.accept('shared/routes', () => {
       render();
     });
   }

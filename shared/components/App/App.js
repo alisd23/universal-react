@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import routes from 'components/routes';
-import SubRoutes from 'components/SubRoutes';
-import globalStyles from 'styles/global.style';
+import routes from 'shared/routes';
+import SubRoutes from 'shared/components/SubRoutes';
+import globalStyles from 'shared/styles/global.style';
 import 'glamor/reset';
 
 export default class App extends Component {

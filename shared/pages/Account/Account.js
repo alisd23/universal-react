@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
-import propTypes from 'utils/propTypes';
-import SubRoutes from 'components/SubRoutes';
+import propTypes from 'shared/utils/propTypes';
+import SubRoutes from 'shared/components/SubRoutes';
 
 const Account = ({ routes }) => (
   <div>

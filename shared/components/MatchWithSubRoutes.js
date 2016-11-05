@@ -1,6 +1,6 @@
 import React from 'react';
 import { Match } from 'react-router';
-import LazyLoad from 'components/LazyLoad';
+import LazyLoad from 'shared/components/LazyLoad';
 
 const call = cand => typeof cand === 'function' ? cand() : cand;
 

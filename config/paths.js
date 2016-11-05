@@ -9,13 +9,11 @@ export default {
   favicon: resolveApp('favicon.ico'),
   packageJson: resolveApp('package.json'),
   client: resolveApp('client'),
-  components: resolveApp('components'),
   server: resolveApp('server'),
+  shared: resolveApp('shared'),
   config: resolveApp('config'),
   scripts: resolveApp('scripts'),
-  utils: resolveApp('utils'),
   assets: resolveApp('assets'),
-  styles: resolveApp('styles'),
   ownNodeModules: resolveApp('node_modules'),
   root: resolveApp('./')
 };
