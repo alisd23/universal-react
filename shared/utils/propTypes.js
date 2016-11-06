@@ -15,7 +15,3 @@ export const route = PropTypes.shape({
 });
 
 export const routes = PropTypes.arrayOf(route);
-
-export default {
-  routes
-};

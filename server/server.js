@@ -1,5 +1,6 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+import Helmet from 'react-helmet';
 import express from 'express';
 import path from 'path';
 import { renderStatic } from 'glamor/server';
@@ -39,7 +40,8 @@ export default (params) => {
         res.status(404);
         renderData = renderStatic(() => renderToString(element));
       }
-      const html = initialHtml(renderData, params.chunks());
+      const helmet = Helmet.rewind();
+      const html = initialHtml(renderData, params.chunks(), helmet);
       res.send(html);
     }
   });
