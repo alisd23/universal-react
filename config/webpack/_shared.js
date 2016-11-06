@@ -26,7 +26,6 @@ export default ({ server, env }) => ({
     loaders: [
       {
         test: /\.js$/,
-        include: [paths.root],
         exclude: /node_modules/,
         loader: 'babel',
         options: {

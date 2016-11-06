@@ -1,22 +1,37 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+import mongoose from 'mongoose';
+import session from 'express-session';
 import Helmet from 'react-helmet';
 import express from 'express';
 import path from 'path';
 import { renderStatic } from 'glamor/server';
 import { ServerRouter, createServerRenderContext } from 'react-router';
+import { appConfig, sessionConfig, connectMongoDB, requests } from 'revyou-core';
 import paths from 'config/paths';
 import ports from 'config/ports';
 import App from 'shared/components/App';
 import initialHtml from 'server/initial-html';
 
+const MongoStore = require('connect-mongo')(session);
+
 export default (params) => {
   const app = express();
 
+  connectMongoDB(appConfig.MONGO_URL);
+
   app.use(express.static(path.join(paths.build)));
+  app.use(session({
+    ...sessionConfig,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
+  }));
 
   app.get('*', (req, res) => {
+    const { headers } = req;
     const context = createServerRenderContext();
+
+    requests.testAuth({ headers })
+      .then(data => console.log('CHECK', data));
 
     // render the first time
     const element = (
