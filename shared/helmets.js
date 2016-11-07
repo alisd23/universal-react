@@ -21,3 +21,7 @@ export const account = {
 export const profile = {
   title: 'My RevYou | Profile'
 };
+
+export const notFound = {
+  title: 'Universal | Not Found'
+};

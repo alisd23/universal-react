@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import routes from 'shared/routes';
 import * as helmets from 'shared/helmets';
@@ -16,6 +17,7 @@ export default class App extends Component {
         <Helmet {...helmets.app} />
         <h1>THE APP</h1>
         <SubRoutes routes={routes} />
+        <Link to={'/trump'}>See 404 route</Link>
       </div>
     );
   }
