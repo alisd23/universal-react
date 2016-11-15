@@ -27,7 +27,7 @@ export default ({ server, env }) => ({
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         options: {
           babelrc: false,
           ...babelrc,
@@ -39,7 +39,7 @@ export default ({ server, env }) => ({
       },
       {
         test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)(\?.*)?$/,
-        loader: 'file',
+        loader: 'file-loader',
         query: {
           name: 'assets/[name].[ext]'
         }

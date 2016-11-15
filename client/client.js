@@ -1,43 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { rehydrate } from 'glamor';
-import { BrowserRouter } from 'react-router';
+import { Router, match, browserHistory as history } from 'react-router';
 import { AppContainer } from 'react-hot-loader';
-import fetchChunks from 'client/fetchChunks';
 import routes from 'shared/routes';
 
 rehydrate(window._glam);
 
-const render = () => {
-  const App = require('shared/components/App').default;
+const render = (renderProps) => {
+  const routes = require('shared/routes').default;
   ReactDOM.render(
-    <AppContainer>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+    <AppContainer history={history}>
+      <Router {...renderProps}>
+        {routes}
+      </Router>
     </AppContainer>,
     document.getElementById('root')
   );
 };
 
-// In dev mode everything is bundled together.
-// In prod we need to wait for async chunks to download before rendering
-if (process.env.NODE_ENV === 'production' || _SPLIT_) {
-  fetchChunks(routes).then(render);
-} else {
-  render();
-}
+match(
+  { history, routes },
+  (error, redirectLocation, renderProps) => {
+    if (error) {
+      console.log('ERROR: ', error);
+    }
 
-/*
- HOT RELOADING SETUP - DEV ONLY
- */
-if (process.env.NODE_ENV === 'development') {
-  if (module.hot) {
-    module.hot.accept('shared/components/App', () => {
-      render();
-    });
-    module.hot.accept('shared/routes', () => {
-      render();
-    });
+    render(renderProps);
+
+    /*
+    HOT RELOADING SETUP - DEV ONLY
+    */
+    if (process.env.NODE_ENV === 'development') {
+      if (module.hot) {
+        module.hot.accept('shared/routes', () => {
+          render(renderProps);
+        });
+      }
+    }
   }
-}
+);
