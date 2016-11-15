@@ -29,7 +29,6 @@ const globalFonts = [
     ]
   }
 ];
-
 createFonts(globalFonts);
 
 export default merge(

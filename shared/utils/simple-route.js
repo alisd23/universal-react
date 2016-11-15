@@ -1,6 +1,5 @@
-export default (pattern, component, routes = []) => ({
-  exactly: routes.length === 0,
-  pattern,
-  component,
-  routes
+export default (path, getComponent, childRoutes = []) => ({
+  path,
+  getComponent,
+  childRoutes
 });

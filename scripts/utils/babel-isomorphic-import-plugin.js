@@ -4,14 +4,14 @@ import syntax from 'babel-plugin-syntax-dynamic-import';
 const TYPE_IMPORT = 'Import';
 
 const asyncImport = template(`
-  (new Promise((resolve) => {
+  (nextState, cb) => {
     require.ensure([SOURCE], (require) => {
-      resolve(require(SOURCE).default);
+      cb(null, require(SOURCE).default);
     });
-  }))
+  }
 `);
 const syncImport = template(`
-  require(SOURCE).default
+  (nextState, cb) => cb(null, require(SOURCE).default)
 `);
 
 export default () => ({

@@ -1,22 +1,20 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router';
 import * as helmets from 'shared/helmets';
-import * as propTypes from 'shared/utils/propTypes';
-import SubRoutes from 'shared/components/SubRoutes';
 
-const Account = ({ routes }) => (
+const Account = ({ children }) => (
   <div>
-    <h1>My RevYou</h1>
+    <h1>My Account</h1>
     <Helmet {...helmets.account} />
     <Link to={'/'}>Go home</Link>
     <Link to={'/account/profile'}>Go profile</Link>
-    <SubRoutes routes={routes} />
+    { children }
   </div>
 );
 
 Account.propTypes = {
-  routes: propTypes.routes
+  children: PropTypes.node
 };
 
 export default Account;
