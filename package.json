@@ -1,47 +1,29 @@
 {
-  "name": "revyou-web",
+  "name": "universal-react",
   "version": "1.0.0",
-  "description": "RevYou website",
+  "description": "Universal React boilerplate (MINIMAL branch)",
   "scripts": {
-    "test": "eslint styles client components config routes scripts server && jest",
     "client:dev": "babel-node scripts/dev-server --dev",
-    "client:prod": "babel-node scripts/build-client",
     "server:dev": "babel-node scripts/build-server --dev",
-    "server:prod": "babel-node scripts/build-server && webpack --config config/webpack/start.js",
     "start:dev": "nodemon ./scripts/start-server.js --watch build/server.js --exec babel-node --dev",
-    "start:prod": "nodemon scripts/dist/start-server.js",
-    "dev": "npm-run-all -p client:dev server:dev start:dev",
-    "prod": "npm-run-all client:prod server:prod start:prod"
-  },
-  "jest": {
-    "collectCoverage": "true",
-    "collectCoverageFrom": [
-      "components/**/*.js",
-      "routes/*/*.js"
-    ],
-    "coveragePathIgnorePatterns": [
-      ".*style.js$"
-    ]
+    "dev": "npm-run-all -p client:dev server:dev start:dev"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alisd23/revyou-web.git"
+    "url": "git+https://github.com/alisd23/universal-react.git"
   },
   "author": "Ali Sheehan-Dare <alisd23@live.co.uk>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alisd23/revyou-web/issues"
+    "url": "https://github.com/alisd23/universal-react/issues"
   },
-  "homepage": "https://github.com/alisd23/revyou-web#readme",
+  "homepage": "https://github.com/alisd23/universal-react#readme",
   "dependencies": {
     "classnames": "^2.2.5",
     "express": "^4.14.0",
-    "glamor": "^2.17.14",
-    "isomorphic-fetch": "^2.2.1",
     "nodemon": "^1.11.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-helmet": "3.1.0",
     "react-router": "^3.0.0"
   },
   "devDependencies": {
@@ -69,11 +51,9 @@
     "eslint-plugin-standard": "^2.0.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
-    "jest": "^16.0.2",
     "nodemon": "^1.11.0",
     "npm-run-all": "^3.1.1",
     "promise": "^7.1.1",
-    "react-hot-loader": "^3.0.0-beta.6",
     "rimraf": "^2.5.4",
     "universal-webpack": "^0.1.40",
     "webpack": "beta",

@@ -10,7 +10,9 @@
     "react/jsx-boolean-value": 0,
     "react/jsx-no-bind": [1, {
       "allowArrowFunctions": true
-    }]
+    }],
+    "handle-callback-err": [0],
+    "react/prop-types": [0]
   },
   "globals": {
     "_MOBILE_": true,

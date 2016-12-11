@@ -1,16 +1,10 @@
-import route from 'shared/utils/simple-route';
-import indexRoute from 'shared/utils/index-route';
-import miss from 'shared/utils/miss';
+import React from 'react';
+import { Route, IndexRoute } from 'react-router';
 import App from 'shared/components/App';
+import Home from 'shared/components/Home';
 
-export default {
-  path: '/',
-  component: App,
-  indexRoute: indexRoute(import('shared/pages/Home')),
-  childRoutes: [
-    route('account', import('shared/pages/Account'), [
-      route('profile', import('shared/pages/Profile'))
-    ]),
-    miss(import('shared/pages/NotFound'))
-  ]
-};
+export default (
+  <Route path='/' component={App}>
+    <IndexRoute component={Home} />
+  </Route>
+);

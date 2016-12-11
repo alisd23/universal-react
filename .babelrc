@@ -5,10 +5,8 @@
     "stage-1"
   ],
   "plugins": [
-    "react-hot-loader/babel",
     "transform-decorators-legacy",
-    "transform-class-properties",
-    "syntax-dynamic-import"
+    "transform-class-properties"
   ],
   "ignore": [
     "node_modules/**/*"

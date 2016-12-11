@@ -27,15 +27,7 @@ export default ({ server, env }) => ({
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          babelrc: false,
-          ...babelrc,
-          plugins: [
-            ...babelrc.plugins,
-            [path.resolve(paths.scripts, 'utils/babel-isomorphic-import-plugin.js'), { server, env }]
-          ]
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)(\?.*)?$/,
