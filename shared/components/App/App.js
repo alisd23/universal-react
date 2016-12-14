@@ -6,5 +6,3 @@ export default ({ children }) => (
     {children}
   </div>
 );
-
-import './App.css';

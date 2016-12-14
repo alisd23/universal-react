@@ -19,7 +19,6 @@ export default ({ server }) => {
     entry: [
       `webpack-dev-server/client?http://localhost:${WEBPACK_PORT}`,
       'webpack/hot/only-dev-server',
-      'react-hot-loader/patch',
       ...shared.entry
     ],
     output: {

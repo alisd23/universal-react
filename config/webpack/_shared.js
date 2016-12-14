@@ -3,7 +3,6 @@ import path from 'path';
 import webpack from 'webpack';
 import fs from 'fs';
 import paths from '../paths';
-const babelrc = JSON.parse(fs.readFileSync('.babelrc'));
 
 export default ({ server, env }) => ({
   context: paths.root,
