@@ -1,7 +1,6 @@
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import path from 'path';
 import webpack from 'webpack';
-import fs from 'fs';
 import paths from '../paths';
 
 export default ({ server, env }) => ({
@@ -40,8 +39,8 @@ export default ({ server, env }) => ({
   plugins: [
     new CopyWebpackPlugin([
       {
-        from: 'assets',
-        to: 'assets'
+        from: 'assets/favicon.ico',
+        to: 'assets/favicon.ico'
       }
     ]),
     new webpack.DefinePlugin({

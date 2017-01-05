@@ -2,11 +2,7 @@ export default (markup, assets) => `
   <!doctype html>
   <html>
     <head>
-      ${
-        Object.keys(assets.styles).map(name =>
-          `<link rel="stylesheet" type="text/css" href="${assets.styles[name]}" />`
-        )
-      }
+      <link rel='icon' href='/assets/favicon.ico' />
     </head>
     <body>
       <div id="root">${markup}</div>
