@@ -55,7 +55,6 @@ export default ({ server, env }) => ({
     ]),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': `"${env}"`,
-      '_MOBILE_': process.env.MOBILE,
       '_SPLIT_': process.env.SPLIT,
       '_SERVER_': !!server,
       '_CLIENT_': !server

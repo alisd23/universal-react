@@ -9,3 +9,8 @@ export const green = {
   light: '#92EB4E',
   dark: '#49A900'
 };
+
+export const grey = {
+  lightest: '#f4f4f4',
+  dark: '#333333'
+};
